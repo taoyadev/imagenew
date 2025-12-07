@@ -40,7 +40,7 @@ bucket_name = "imagenew-bucket"
 name = "imagenew"
 
 [env.taoyadev.vars]
-PUBLIC_BASE_URL = "https://fe394f7c37b25babc4e351d704a6a97c.r2.cloudflarestorage.com/imagegen-bucket"
+PUBLIC_BASE_URL = "https://cdn.savedimage.com"
 
 [[env.taoyadev.r2_buckets]]
 binding = "R2"
