@@ -12,7 +12,7 @@ directory = "./public"
 # Optional settings; override in dashboard or with `--var`
 PUBLIC_BASE_URL = ""                 # e.g. https://cdn.example.com
 SIGNED_URL_TTL = "86400"              # seconds for signed URLs if PUBLIC_BASE_URL is empty
-ALLOWED_TOKENS = ""                   # comma-separated API tokens expected in Authorization/X-Api-Key
+ALLOWED_TOKENS = "imagenew-demo-token-2024"  # comma-separated API tokens expected in Authorization/X-Api-Key
 ALLOWED_REFERERS = ""                 # comma-separated origins allowed to call the API
 PROMPT_BLACKLIST = ""                 # comma-separated banned substrings
 DEFAULT_MODEL = "black-forest-labs/FLUX.1-schnell-Free"
