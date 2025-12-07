@@ -31,7 +31,7 @@ export async function handleGallery(
     // List objects from R2 with prefix
     // Note: R2 list doesn't support true offset, so we fetch limit+offset and slice
     const listed = await env.R2.list({
-      prefix: 'images/gen/',
+      prefix: 'images/',
       limit: 1000, // R2 max per request
     });
 

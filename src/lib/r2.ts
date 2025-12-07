@@ -7,20 +7,20 @@ import { decodeBase64, readUInt32BE, truncate, toInt } from './utils.ts';
 
 /**
  * Generate URL-friendly slug from prompt
- * Takes first 5-6 words, converts to lowercase, replaces spaces with hyphens
+ * Takes first 3 words, converts to lowercase, replaces spaces with hyphens
  */
 function generateSlug(prompt: string): string {
   return prompt
     .toLowerCase()
     .trim()
     .split(/\s+/)           // Split by whitespace
-    .slice(0, 6)            // Take first 6 words
+    .slice(0, 3)            // Take first 3 words
     .join('-')
     .replace(/[^a-z0-9-]/g, '') // Remove non-alphanumeric except hyphens
     .replace(/-+/g, '-')    // Collapse multiple hyphens
     .replace(/^-|-$/g, '')  // Trim leading/trailing hyphens
-    .slice(0, 50)           // Max 50 chars
-    || 'image';             // Fallback if empty
+    .slice(0, 30)           // Max 30 chars
+    || 'img';               // Fallback if empty
 }
 
 interface StoreImageParams {
@@ -151,7 +151,7 @@ export async function storeImage(
   const ext = info.mime === 'image/png' ? 'png' : 'jpg';
   const slug = generateSlug(params.prompt);
   const shortId = crypto.randomUUID().slice(0, 8);
-  const key = `images/gen/${slug}-${shortId}.${ext}`;
+  const key = `images/${slug}-${shortId}.${ext}`;
 
   // Store to R2 with metadata
   await env.R2.put(key, decoded, {
